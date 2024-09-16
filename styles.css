@@ -7,6 +7,7 @@ body {
     box-sizing: border-box;
     color: #333;
     background-color: #fcfcfc;
+    cursor: none;
 }
 
 @font-face {
@@ -31,7 +32,7 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 1;
 }
 
 header .logo {
@@ -285,4 +286,34 @@ footer p a {
     50% {
       transform: scale(.025, 1);
     }
+  }
+
+  :root {
+    --cursor-size: 28px;
+    --bg: #FAF7EE;
+  }
+  
+  
+  #cursor {
+    position: fixed;
+    top: calc(var(--cursor-size) * -0.5);
+    left:  calc(var(--cursor-size) * -0.5);
+    pointer-events: none;
+    mix-blend-mode: difference;  
+    filter: url(#goo);
+  }
+  
+  .cursor-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    border-radius: var(--cursor-size);
+    background: var(--bg);
+    transform-origin: center center;
+  }
+
+  .goo {
+    display: none;
   }
